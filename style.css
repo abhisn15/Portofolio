@@ -1,0 +1,533 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  background: linear-gradient(#1d1d4f, #1d1d4f);
+  min-height: 100vh;
+}
+
+/* Navbar */
+#header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+#header .logo {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+#header .navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#header .navbar li {
+  list-style: none;
+  margin-left: 20px;
+}
+
+#header .navbar li a {
+  text-decoration: none;
+  padding: 6px 15px;
+  color: #fff;
+  border-radius: 20px;
+}
+
+#header .navbar li a:hover,
+#header .navbar li a.active {
+  background: #fff;
+  color: #8b1189;
+}
+
+/* Parallax */
+.banner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 100px;
+}
+
+.banner img {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  object-fit: cover;
+}
+
+
+.banner img.abhi {
+  width: 16%;
+  left: 568px;
+  top: 0px;
+}
+
+.banner img.moon {
+  top: -6px;
+  mix-blend-mode: screen;
+}
+
+h1 {
+  position: absolute;
+  top: 54%;
+  left: -100%;
+  white-space: nowrap;
+  font-family: 'Rancho', cursive;
+  transform: translateY(-50%);
+  font-size: 4vh;
+  color: #fff;
+  text-shadow: 0 10px 15px rgba(0, 0, 0, 0.25);
+}
+
+.banner p {
+  position: absolute;
+  font-family: cursive;
+  font-weight: bold;
+  top: 100%;
+  left: 43%;
+  color: #fff;
+}
+
+/* Hamburger */
+.menu-link {
+transition: all 0.7s;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  width: 30px;
+  height: 20px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.menu-toggle input {
+  position: absolute;
+  width: 40px;
+  height: 28px;
+  left: -5px;
+  top: -3px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 3px;
+  transition: all 0.8s;
+}
+
+/* Hamburger Menu Animations */
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+
+.menu-toggle input.active:checked ~ span:nth-child(2) {
+  background-color: rgb(255, 88, 88);
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input.active:checked ~ span:nth-child(4) {
+  background-color: rgb(255, 80, 80);
+  transform: rotate(-45deg) translate(-1px, 0);
+}
+
+.menu-toggle input.active:checked ~ span:nth-child(3) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* About Me */
+.sec { 
+  position: absolute;
+  bottom: -646px;
+  width: 100%;
+  background-color: #1d1d4f;
+}
+
+h2 {
+  color: #fff;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.sec p {
+  color: #fff;
+  text-align: left;
+  line-height: 20px;
+  width: 100%;
+  max-width: 900px;
+  letter-spacing: 1px;
+  text-indent: 10px;  
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  opacity: .6;
+}
+
+/* Back To Top */
+.btnScrollToTop {
+  position: fixed;
+  display: flex;
+  right: 10px;
+  bottom: -10%;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  background-color: #3a3a8e;
+  color: white;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 0;
+  transition: all .8s ease-in-out;
+}
+
+.btnScrollToTop.active {
+  bottom: 10px;
+  pointer-events: auto;
+  opacity: .9;
+}
+
+path {
+  stroke: currentColor;
+}
+
+@media (max-width: 992px) {
+  #header {
+    padding: 20px;
+  }
+
+  #header .logo {
+    font-size: 1.4em;
+  }
+
+  .menu-toggle {
+    display: flex;
+    z-index: 999;
+  }
+
+  #header .navbar {
+    position: absolute;
+    right: 0;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    justify-content: space-evenly;
+    flex-direction: column;
+    background-color: #1d1d4f;
+    align-items: center;
+    z-index: 1;
+    transform: translateX(-100%);
+    transition: all 1s;
+    opacity: 0;
+  }
+
+  #header .navbar.slide {
+    opacity: .8;
+    transform: translateY(0);
+    z-index: 1;
+  }
+
+  #header .navbar li {
+    border-bottom:1px solid #ff0080;
+  }
+
+  #header .navbar li a:hover,
+  #header .navbar li a.active {
+    background: none;
+    color: cyan;
+    transition: all .6s;
+  }
+
+  /* Parallax */
+  .banner img {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    object-fit: cover;
+  }
+
+  .banner img.stars2 {
+    display: block;
+    width: 100%;
+    height: 120%;
+    object-fit: cover;
+  }  
+
+  .banner img.stars {
+    display: none;
+  }
+
+  .banner img.moon {
+    left: 0;
+    height: 80%;
+  }
+
+  .banner img.abhi {
+    bottom: 0;
+    top: 1px;
+    left: 110px;
+    width: 200px;
+  }
+
+  /* About Me */
+  .sec { 
+    position: absolute;
+    bottom: -539px;
+    width: 100%;
+    background-color: #1d1d4f;
+    padding: 56px;
+  }
+
+}
+
+@media (max-width: 768px) {
+    /* Parallax */
+    .banner img {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      pointer-events: none;
+      object-fit: cover;
+    }
+
+    h1 {
+      position: absolute;
+      top: 44%;
+      left: 34%;
+      white-space: nowrap;
+      font-family: 'Rancho', cursive;
+      transform: translateY(-50%);
+      font-size: 4vh;
+      color: #fff;
+      text-shadow: 0 10px 15px rgba(0, 0, 0, 0.25);
+    }
+    
+    .banner p {
+      position: absolute;
+      font-family: cursive;
+      font-weight: bold;
+      top: 47%;
+      left: 39%;
+      color: #fff;
+    }
+    
+  
+    .banner img.stars2 {
+      display: block;
+      width: 100%;
+      height: 120%;
+      object-fit: cover;
+    }  
+  
+    .banner img.stars {
+      display: none;
+    }
+  
+    .banner img.moon {
+      top: 30px;
+      position: relative;
+      left: 12px;
+      height: 80%;
+    }
+  
+    .banner img.abhi {
+      bottom: 0;
+      top: 204px;
+      left: 296px;
+      width: 200px;
+    }
+  
+    /* About Me */
+    .sec { 
+      position: absolute;
+      bottom: -413px;
+      width: 100%;
+      background-color: #1d1d4f;
+      padding: 86px;
+    }
+  
+}
+
+@media (max-width: 576px) {
+    /* Parallax */
+      .banner img {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        pointer-events: none;
+        object-fit: cover;
+      }
+  
+      h1 {
+        position: absolute;
+        top: 44%;
+        left: 31%;
+        white-space: nowrap;
+        font-family: 'Rancho', cursive;
+        transform: translateY(-50%);
+        font-size: 3vh;
+        color: #fff;
+        text-shadow: 0 10px 15px rgba(0, 0, 0, 0.25);
+      }
+      
+      .banner p {
+        position: absolute;
+        font-family: cursive;
+        font-weight: bold;
+        font-size: 10px;
+        top: 46%;
+        left: 37%;
+        color: #fff;
+      }
+
+      .banner img.stars2 {
+        display: block;
+        width: 100%;
+        height: 120%;
+        object-fit: cover;
+      }  
+    
+      .banner img.stars {
+        display: none;
+      }
+    
+      .banner img.moon {
+        top: 30px;
+        position: relative;
+        left: 12px;
+        height: 80%;
+      }
+    
+      .banner img.abhi {
+        bottom: 0;
+        top: 204px;
+        left: 140px;
+        width: 160px;
+      }
+    
+      /* About Me */
+      .sec { 
+        position: absolute;
+        bottom: -600px;
+        width: 100%;
+        background-color: #1d1d4f;
+        padding: 46px;
+      }
+}
+
+@media (max-width: 354px) {
+  #header .logo {
+    font-size: 14px;
+  }
+
+      /* Parallax */
+      .banner img {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        pointer-events: none;
+        object-fit: cover;
+      }
+  
+      h1 {
+        position: absolute;
+        top: 44%;
+        left: 31%;
+        white-space: nowrap;
+        font-family: 'Rancho', cursive;
+        transform: translateY(-50%);
+        font-size: 3.8vh;
+        color: #fff;
+        text-shadow: 0 10px 15px rgba(0, 0, 0, 0.25);
+      }
+      
+      .banner p {
+        position: absolute;
+        font-family: cursive;
+        font-weight: bold;
+        font-size: 7px;
+        top: 46%;
+        left: 39%;
+        color: #fff;
+      }
+
+      .banner img.stars2 {
+        display: block;
+        width: 100%;
+        height: 120%;
+        object-fit: cover;
+      }  
+    
+      .banner img.stars {
+        display: none;
+      }
+    
+      .banner img.moon {
+        top: 10px;
+        position: relative;
+        left: 2px;
+        height: 100%;
+      }
+    
+      .banner img.abhi {
+        bottom: 0;
+        top: 112px;
+        left: 128px;
+        width: 108px;
+      }
+    
+      /* About Me */
+      .sec { 
+        position: absolute;
+        bottom: -693px;
+        width: 100%;
+        background-color: #1d1d4f;
+        padding: 46px;
+      }
+
+      .sec p {
+        font-size: 12px;
+      }
+}
